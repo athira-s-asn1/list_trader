@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+  <!-- Head -->
+  <%= render partial: 'layouts/common/head' %>
+
+  <body class="font-montserrat light_version">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+      <div class="loader">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+      </div>
+    </div>
+
+    <%= yield %>
+
+    <!-- Application Javascripts  -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Vendor Javascripts  -->
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js' %>
+    <%#= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.1.6/tinymce.min.js' %>
+
+    <!-- Yielding Javascript Footer -->
+    <script type="text/javascript">
+      <%= yield :javascript_footer -%>
+    </script>
+    
+  </body>
+</html>

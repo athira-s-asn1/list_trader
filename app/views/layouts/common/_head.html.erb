@@ -1,0 +1,48 @@
+<head>
+
+  <title><%= "List Trader" -%></title>
+
+  <%= meta_tags -%>
+  <%= csrf_meta_tags -%>
+  <%= csp_meta_tag -%>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/favicon.ico", type ="image/x-icon">
+  
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+  
+
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' %>
+  <%#= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+  <%#= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css' %>
+  
+  <%#= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css' %>
+  <%#= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css' %>
+
+  <!-- Application Stylesheets -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+  <!-- Hotjar Tracking Code for https://itslabel.me/ -->
+  <% if Rails.env == "production" %>
+    <script>
+        (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:1902324,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+  <% end %>
+  
+</head>
+
+
+

@@ -1,0 +1,260 @@
+<%= render partial: 'layouts/common/header' %>
+  <!-- Page content -->
+  <div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+      <!-- Inner content -->
+      <div class="content-inner">
+
+        <!-- Content area -->
+        <div class="content d-flex justify-content-center align-items-center">
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-auth-small'}) do |f| %>
+                            
+              <!-- Display Errors if Any -->
+              <% if resource.errors.any? %>
+              <div class='alert alert-danger'>
+                Please fix the following errors
+              </div>
+              <% end %>
+            <div class="card mb-0">
+              <div class="card-body">
+                <div class="text-center mb-3">
+                  <i class="icon-plus3 icon-2x text-success border-success-100 border-3 rounded-pill p-3 mb-3 mt-1"></i>
+                  <h5 class="mb-0">Create account</h5>
+                </div>
+                <div class="row">
+                                
+                                <!-- First Name -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name"  %>
+                                    <%= display_parsley_error(resource, :first_name) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+                                
+                                <!-- Last Name -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name"  %>
+                                    <%= display_parsley_error(resource, :last_name) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+
+                              </div>
+
+                              <div class="row">
+
+                                <!-- Organization -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                                    </div>
+                                    <%= f.text_field :organisation, autofocus: true, class: "form-control", placeholder: "Organisation"  %>
+                                    <%= display_parsley_error(resource, :organisation) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+
+                                <!-- Position -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-black-tie"></i> </span>
+                                    </div>
+                                    <%= f.text_field :position, autofocus: true, autocomplete: "position", class: "form-control", placeholder: "Position"  %>
+                                    <%= display_parsley_error(resource, :position) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+
+                              </div>
+
+                              <div class="row">
+
+                                <!-- Country -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                                    </div>
+                                    <%= f.country_select :country, [ "US", "GB", "FR", "DE", "AE", "SA", "CN", "IN", "RU" ], {}, {class: "form-control", :id => "INP_COUNTRY"} %>
+                                    <%= display_parsley_error(resource, :country) %>
+                                    <%#= f.country_select :country, ([ "GB", "FR", "DE" ]), iso_codes: true, id: :element_id, class: "form-control", autofocus: true %>
+                                  </div> <!-- form-group// -->
+                                </div>
+
+                                <!-- Country Code & Phone Number -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-plus"></i> </span>
+                                    </div>
+
+                                    <div style='width:50px'>
+                                      <%= f.text_field :country_code, autofocus: true, autocomplete: "country_code", class: "form-control", placeholder: "971", id: "INP_COUNTRY_CODE" %>
+                                      <%= display_parsley_error(resource, :country_code) %>
+                                    </div>
+
+                                    <%= f.telephone_field :mobile_number, autofocus: true, class: "form-control", placeholder: "Phone Number"  %>
+                                    <%= display_parsley_error(resource, :mobile_number) %>
+                                    
+
+                                  </div> <!-- form-group// -->
+                                </div>
+
+                              </div>
+                              
+                              <div class="row">
+                                
+                                <!-- Email Address -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                    </div>
+                                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email Address"  %>
+                                    <%= display_parsley_error(resource, :email) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    
+                                    <%= f.select(:user_type, ['Buyer', 'Seller'], {include_blank: "Category"}, { :class => 'form-control' }) %>
+
+                                    <%= display_parsley_error(resource, :user_type) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+
+                              </div>
+
+                              <div class="row">
+
+                                <!-- 
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                                    </div>
+                                    <%#= f.time_zone_select :time_zone,  ActiveSupport::TimeZone.all,{},{ class: "form-control",:id=>"time_zone"} %>
+                                  </div>
+                                </div>  -->
+
+                                <!-- Password -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    </div>
+                                    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+                                    <%= display_parsley_error(resource, :password) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+                                                
+                                <!-- Password -->
+                                <div class="col-md-6">
+                                  <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    </div>
+                                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Repeat Password" %>
+                                    <%= display_parsley_error(resource, :password_confirmation) %>
+                                  </div> <!-- form-group// -->
+                                </div>
+                              </div>
+
+                <div class="form-group">                  
+
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" name="remember" class="custom-control-input">
+                    <span class="custom-control-label">Accept <a href="#">&nbsp;terms of service</a></span>
+                  </label>
+                </div>
+
+                              
+                             <!-- 
+
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <input type="text" class="form-control" placeholder="Username">
+                  <div class="form-control-feedback">
+                    <i class="icon-user-check text-muted"></i>
+                  </div>
+                </div>
+
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <input type="password" class="form-control" placeholder="Password">
+                  <div class="form-control-feedback">
+                    <i class="icon-user-lock text-muted"></i>
+                  </div>
+                </div>
+
+                <div class="form-group text-center text-muted content-divider">
+                  <span class="px-2">Your contacts</span>
+                </div>
+
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <input type="password" class="form-control" placeholder="Your email">
+                  <div class="form-control-feedback">
+                    <i class="icon-mention text-muted"></i>
+                  </div>
+                </div>
+
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <input type="password" class="form-control" placeholder="Repeat email">
+                  <div class="form-control-feedback">
+                    <i class="icon-mention text-muted"></i>
+                  </div>
+                </div>
+
+                <div class="form-group text-center text-muted content-divider">
+                  <span class="px-2">Additions</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" name="remember" class="custom-control-input" checked>
+                    <span class="custom-control-label">Send me <a href="#">&nbsp;test account settings</a></span>
+                  </label>
+
+                  <label class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" name="remember" class="custom-control-input" checked>
+                    <span class="custom-control-label">Subscribe to monthly newsletter</span>
+                  </label>
+
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" name="remember" class="custom-control-input">
+                    <span class="custom-control-label">Accept <a href="#">&nbsp;terms of service</a></span>
+                  </label>
+                </div>-->
+
+                <center>
+                  <button type="submit" class="btn btn-teal ">Register</button>                                  
+                </center>
+              </div>
+            </div>
+          <% end %>
+          
+        </div>
+        <!-- /content area -->
+
+
+        <%= render partial: 'layouts/common/footer' %>
+        <!-- /footer -->
+
+      </div>
+      <!-- /inner content -->
+
+    </div>
+    <!-- /main content -->
+
+  </div>

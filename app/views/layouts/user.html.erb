@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+  <!-- Head -->
+  <%= render partial: 'layouts/common/head' %>
+
+  <body class="font-roboto light_version">
+
+    <!-- Page Loader -->
+    <%= render partial: 'layouts/user/loader' %>
+
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <div id="wrapper">
+        <!-- Top Navigation -->
+        <%= render partial: 'layouts/user/navbar' %>
+
+        <!-- Search Container -->
+        <%#= render partial: 'layouts/user/search' %>
+
+        <!-- Left Sidebar -->
+         <%= render partial: 'layouts/user/left_sidebar' %>
+
+        <!-- Main container -->
+        <div id="main-content" class="mt-2">
+
+          <!-- Show Success / Error / Info Messages If any set by the controller action -->
+          <%#= flash_message(false) if defined?(flash) -%>
+          <%= yield %>
+
+        </div>
+        <!-- End of Main container -->
+        
+    </div>
+ <div id="GENERIC_MODAL_DIV">
+ </div>
+    <!-- Modals -->
+    <%= render partial: 'layouts/common/modals' %>
+
+    <!-- Application Javascripts  -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Vendor Javascripts  -->
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js' %>
+    <%#= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js' %>
+    <%#= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/handsontable/7.3.0/handsontable.min.js' %>
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/handsontable@latest/dist/handsontable.full.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.1.6/tinymce.min.js' %>
+
+    <!-- Yielding Javascript Footer -->
+    <script type="text/javascript">
+      <%= yield :javascript_footer -%>
+    </script>
+       
+  </body>
+</html>

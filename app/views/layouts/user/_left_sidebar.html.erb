@@ -1,0 +1,36 @@
+<!-- Left Sidebar -->
+<div id="left-sidebar" class="sidebar">
+
+
+  <div class="sidebar-scroll">
+    <div class="user-account">
+        <div class="dropdown">                        
+            <a href="javascript:void(0);" class="user-name"><strong><%= current_client_user.display_name   %></strong></a>
+            
+            <span><%= current_client_user.try(:user_type)  %></span>
+        </div>
+    </div>
+
+
+  <nav id="left-sidebar-nav" class="sidebar-nav">
+      <ul id="main-menu" class="metismenu">
+          <li>
+              <%= link_to destroy_client_user_session_url, method: :delete do %>
+                  <%= image_tag "icons/logout.svg", alt: "logout icon"%>
+                  <span>Logout</span>
+              <% end %>
+          </li>
+      </ul>
+  </nav>
+
+
+
+
+
+
+
+    
+  </div>
+
+</div>
+<!-- End Left Sidebar

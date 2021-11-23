@@ -1,0 +1,87 @@
+<%= render partial: 'layouts/common/header' %>
+  <!-- Page content -->
+  <div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+      <!-- Inner content -->
+      <div class="content-inner">
+
+        <!-- Content area -->
+        <div class="content d-flex justify-content-center align-items-center">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'login-form'}) do |f| %>
+            <div class="card mb-0">
+              <div class="card-body">
+                <div class="form-text text-danger" id="USER_LOGIN_ERRORS">
+                  <!-- Display Errors if Any -->
+                  <%= flash_message(false) if defined?(flash) -%>
+                  <%= error_message(resource) if resource.errors.any? %>
+                </div>
+                <div class="text-center mb-3">
+                  <i class="icon-reading icon-2x text-secondary border-secondary-100 border-3 rounded-pill p-3 mb-3 mt-1"></i>
+                  <h5 class="mb-0">Login to your account</h5>
+                  <span class="d-block text-muted">Enter your credentials below</span>
+                </div>
+
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "signin-email", placeholder: "Email" %>
+                  <div class="form-control-feedback">
+                    <i class="icon-user text-muted"></i>
+                  </div>
+                </div>
+
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "signin-password", placeholder: "Password" %>
+                  <div class="form-control-feedback">
+                    <i class="icon-lock2 text-muted"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+
+                <div class="mt-4">
+                  <span class="helper-text m-b-10"><i class="fa fa-lock"></i>
+                    <% url = resource_name == :client_user ? new_client_user_password_path : new_admin_user_password_path %>
+                    <%#= link_to "Forgot password?", url %>
+                   <!--TODO:- For Welcome mail for new user -->
+                 
+                    <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
+
+                  </span>
+
+                  <% if resource_name == :client_user %>
+                  <span>
+                    Don't have an account?
+                    <%= link_to "Register", new_client_user_registration_path %>
+                  </span>
+                  <% end %>
+
+                  <% if resource_name == :admin_user %>
+                    <p >
+                      <%= link_to "Log In as Client User?", new_client_user_session_path %>
+                    </p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            
+          <% end %>
+
+          
+        </div>
+        <!-- /content area -->
+
+
+        <%= render partial: 'layouts/common/footer' %>
+        <!-- /footer -->
+
+      </div>
+      <!-- /inner content -->
+
+    </div>
+    <!-- /main content -->
+
+  </div>

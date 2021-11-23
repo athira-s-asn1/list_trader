@@ -1,0 +1,19 @@
+// Reload the form to show errors
+$("#PROFILE_UPDATE_FORM").html("<%= escape_javascript(render(:partial=>'user/client_profile/form/update_profile')) %>");
+
+<% if @client_user.errors.blank? %>
+  
+  // Showing Growl Like Message
+   notifySuccess("<%= escape_javascript(@notification[:title]) %>", "<%= escape_javascript(@notification[:message]) %>");
+  
+<% else %>
+
+  // Showing Growl Like Message
+  notifyError("<%= escape_javascript(@notification[:title]) %>", "<%= escape_javascript(@notification[:message]) %>");
+
+<% end %>
+
+// Set Focus on the First Input after loading the form
+setFocusOnFirstInput("PROFILE_UPDATE_FORM");
+
+

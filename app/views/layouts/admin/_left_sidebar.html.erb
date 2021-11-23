@@ -1,0 +1,28 @@
+<div id="left-sidebar" class="sidebar">
+
+
+  <div class="sidebar-scroll mb-3">
+    <div class="user-account">
+        <div class="dropdown">                        
+            <a href="javascript:void(0);" class="user-name"><strong><%= current_admin_user.display_name   %></strong></a>
+            <span><%= current_admin_user.try(:organisation).titleize if current_admin_user.try(:organisation)  %></span>
+        </div>
+    </div>
+
+
+    <nav id="left-sidebar-nav" class="sidebar-nav mb-4">
+      <ul id="main-menu" class="metismenu mb-4">
+        <!-- <li class="header">Admin</li> -->
+          
+          <li>
+              <%= link_to destroy_admin_user_session_url, method: :delete do %>
+                  <%= image_tag "icons/logout.svg", alt: "logout icon"%>
+                  <span>Logout</span>
+              <% end %>
+          </li>
+          
+           
+      </ul>
+    </nav>
+  </div>
+</div>
